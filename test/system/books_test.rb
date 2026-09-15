@@ -7,34 +7,33 @@ class BooksTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit books_url
-    assert_selector "h1", text: "Books"
+    assert_selector "h1", text: "Book Collection"
   end
 
   test "should create book" do
     visit books_url
-    click_on "New book"
+    click_on "Add a New Book"
 
     fill_in "Title", with: @book.title
     click_on "Create Book"
 
     assert_text "Book was successfully created"
-    click_on "Back"
   end
 
   test "should update Book" do
-    visit book_url(@book)
-    click_on "Edit this book", match: :first
+    visit books_url
+    click_on "Update Book", match: :first
 
     fill_in "Title", with: @book.title
     click_on "Update Book"
 
     assert_text "Book was successfully updated"
-    click_on "Back"
   end
 
   test "should destroy Book" do
-    visit book_url(@book)
-    click_on "Destroy this book", match: :first
+    visit books_url
+    click_on "Delete Book", match: :first
+    click_on "Confirm Delete"
 
     assert_text "Book was successfully destroyed"
   end
