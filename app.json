@@ -1,0 +1,10 @@
+{
+  "name": "Book Collection",
+  "description": "Ruby on Rails Book Collection CRUD application",
+  "scripts": {
+    "postdeploy": "bin/rails db:seed"
+  },
+  "addons": [
+    "heroku-postgresql:essential-0"
+  ]
+}
