@@ -1,0 +1,21 @@
+ <p style="color: green"><%= notice %></p>
+
+<h1>Book Collection</h1>
+
+<p><%= link_to "Add a New Book", new_book_path %></p>
+
+<% if @books.any? %>
+  <div id="books">
+    <% @books.each do |book| %>
+      <div id="<%= dom_id book %>">
+        <h2><%= book.title %></h2>
+
+        <%= link_to "Show Details", book_path(book) %> |
+        <%= link_to "Update Book", edit_book_path(book) %> |
+        <%= link_to "Delete Book", delete_book_path(book) %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>No books have been added yet.</p>
+<% end %>
