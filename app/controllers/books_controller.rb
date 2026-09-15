@@ -32,6 +32,7 @@ class BooksController < ApplicationController
         format.html { redirect_to books_path, notice: "Book was successfully created." }
         format.json { render :show, status: :created, location: @book }
       else
+        flash.now[:alert] = "Title cannot be blank."
         format.html { render :new, status: :unprocessable_content }
         format.json { render json: @book.errors, status: :unprocessable_content }
       end
