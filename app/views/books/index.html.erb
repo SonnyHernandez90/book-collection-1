@@ -1,4 +1,4 @@
- <p style="color: green"><%= notice %></p>
+<p style="color: green"><%= notice %></p>
 
 <h1>Book Collection</h1>
 
@@ -9,6 +9,18 @@
     <% @books.each do |book| %>
       <div id="<%= dom_id book %>">
         <h2><%= book.title %></h2>
+
+        <p><strong>Author:</strong> <%= book.author.presence || "Not provided" %></p>
+
+        <p>
+          <strong>Price:</strong>
+          <%= book.price.present? ? number_to_currency(book.price) : "Not provided" %>
+        </p>
+
+        <p>
+          <strong>Published date:</strong>
+          <%= book.published_date&.strftime("%B %d, %Y") || "Not provided" %>
+        </p>
 
         <%= link_to "Show Details", book_path(book) %> |
         <%= link_to "Update Book", edit_book_path(book) %> |
